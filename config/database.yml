@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: 127.0.0.1
+  username: postgres
+  password: root
+  
+development:
+  <<: *default
+  database: demouser_development
+
+test:
+  <<: *default
+  database: demouser_test
+
+production:
+  <<: *default
+  database: <%= ENV['DEMOUSER_DATABASE'] %>
+  username: <%= ENV['DEMOUSER_DATABASE_USERNAME'] %>
+  password: <%= ENV['DEMOUSER_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DEMOUSER_DATABASE_HOSTNAME'] %>
+  port: <%= ENV['DEMOUSER_DATABASE_PORT'] %>

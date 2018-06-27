@@ -1,0 +1,8 @@
+%tr
+  %th
+    = check_box_tag 'users[]', user.id, false ,id: "checkbox_#{dom_id user}", class: 'checkbox-of-table'
+    = label_tag :selected, '', for: "checkbox_#{dom_id user}"
+  %td= user.id
+  %td= user.name
+  %td= user.email
+  %td= user.status

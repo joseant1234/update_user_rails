@@ -1,0 +1,22 @@
+= form_tag status_users_path, method: :put do
+  = hidden_field_tag :status, '', id: 'action_hidden'
+  .row
+    .col.s12.m2
+      %a{href: "#", class: 'btn blue top-space status-btn', "data-status": 'active'}
+        Active
+    .col.s12.m2
+      %a{href: "#", class: 'btn blue top-space status-btn', "data-status": 'desactive'}
+        Desactive
+
+  %table
+    %thead
+      %tr
+        %th
+          %input{type: 'checkbox', id: 'all_users', class: 'all-checkbox-of-table', checked: false}
+          %label{for: "all_users"}
+        %th ID
+        %th Name
+        %th Email
+        %th Status
+    %tbody#users_index
+      = render @users
